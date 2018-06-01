@@ -19,7 +19,7 @@ pipeline {
         }
         stage('03 - Deploy') {
             environment {
-                TOMCAT_CREDS = credentials('tomcat-credentials')
+                TOMCAT_CREDS = credentials('tomcat-users')
                 TOMCAT_URL = credentials('tomcat-url')
             }
             steps {
