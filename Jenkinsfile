@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'MVN'
+        maven 'Maven Default'
     }
     stages {
         stage('01 - Test'){
