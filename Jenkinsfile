@@ -6,20 +6,20 @@ pipeline {
     stages {
         stage('01 - Test'){
             steps {
-                git url: 'https://github.com/kidh0/argentum-web'
+                git url: 'https://github.com/prisoares/argentum-web'
                 sh 'mvn clean test'
                 cleanWs()
             }
         }
         stage('02 - Package') {
             steps {
-                git url: 'https://github.com/kidh0/argentum-web'
+                git url: 'https://github.com/prisoares/argentum-web'
                 sh 'mvn package'
             }
         }
         stage('03 - Deploy') {
             environment {
-                TOMCAT_CREDS = credentials('tomcat-users')
+                TOMCAT_CREDS = credentials('tomcat-credentials')
                 TOMCAT_URL = credentials('tomcat-url')
             }
             steps {
